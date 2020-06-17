@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/alexapps/cloud-native-go/api"
+	"udemy/cloud-native-go/api"
 )
 
 func main() {

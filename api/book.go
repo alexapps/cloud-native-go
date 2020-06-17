@@ -1,6 +1,9 @@
 package api
 
-import "encoding/json"
+import (
+	"encoding/json"
+	"net/http"
+)
 
 type Book struct {
 	Title  string `json:"title"`
@@ -31,7 +34,7 @@ var Books = []Book{
 	Book{Title: "Somthing Go", Author: "JJ Booo", ISBN: "4433444"},
 }
 
-func BookHandleFunc(w http.ResponceWriter, r *http.Request) {
+func BookHandleFunc(w http.ResponseWriter, r *http.Request) {
 	b, err := json.Marshal(Books)
 	if err != nil {
 		panic(err)
