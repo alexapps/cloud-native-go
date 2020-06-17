@@ -4,13 +4,16 @@ import (
 	"fmt"
 	"net/http"
 	"os"
+
+	"github.com/alexapps/cloud-native-go/api"
 )
 
 func main() {
 	// http://0.0.0.0:8084/
 	http.HandleFunc("/", index)
 	// http://0.0.0.0:8084/api/echo?message=Cloud+Native+Go
-	http.HandleFunc("/api/echo", echo)
+	http.HandleFunc("/api/echo", api.Echo)
+	http.HandleFunc("/api/books", api.BookHandleFunc)
 	http.ListenAndServe(port(), nil)
 }
 
@@ -21,14 +24,6 @@ func port() string {
 		port = "8083"
 	}
 	return ":" + port
-}
-
-//
-func echo(w http.ResponseWriter, r *http.Request) {
-	// Extarct the input message. The first one
-	message := r.URL.Query()["message"][0]
-	w.Header().Add("Content-Type", "text/plain")
-	fmt.Fprintf(w, message)
 }
 
 func index(w http.ResponseWriter, r *http.Request) {
