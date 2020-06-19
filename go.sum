@@ -1,6 +1,7 @@
 github.com/alexapps/cloud-native-go v0.0.0-20200616212407-831140d8eb79 h1:FVoEOswNPzRB44Eatzqi+uCKirTi94QvKWDBgwTBbSg=
 github.com/alexapps/cloud-native-go v0.0.0-20200616212407-831140d8eb79/go.mod h1:W5Etj9PXje5RMDW0RIgwa+YHQ+nzD07wQpJfpuQCAEo=
 github.com/alexapps/cloud-native-go v0.0.0-20200617202840-d593c0e460f5 h1:4br1z5yRiaAevR1CkkDOf93jEn/OglDPMWnC98hN87Q=
+github.com/alexapps/cloud-native-go v0.0.0-20200619211718-27d84b56f94a h1:+D3F7FEUT/zKyN/xwAaoNzhKhz5cpMD/V4NPKyy75MY=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/stretchr/objx v0.1.0/go.mod h1:HFkY916IF+rwdDfMAkV7OtwuqBVzrE8GR6GFx+wExME=
