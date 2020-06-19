@@ -3,14 +3,14 @@ package main
 import (
 	"net/http"
 
-	conf "github.com/alexapps/cloud-native-go/api/config"
+	"github.com/alexapps/cloud-native-go/config"
 	handler "github.com/alexapps/cloud-native-go/api/handlers"
 )
 
 func main() {
 
 	// Init Configuration
-	confInstance := conf.InitConfiguration()
+	confInstance := config.InitConfiguration()
 	// Init handlers
 	booHandler := handler.InitBookHandler()
 	// http://0.0.0.0:8084/
