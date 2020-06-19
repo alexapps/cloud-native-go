@@ -1,4 +1,4 @@
-package models
+package model
 
 // Book -
 type Book struct {

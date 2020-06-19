@@ -5,7 +5,7 @@ import (
 	"io/ioutil"
 	"net/http"
 
-	model "github.com/alexapps/cloud-native-go/model"
+	"github.com/alexapps/cloud-native-go/model"
 	bookService "github.com/alexapps/cloud-native-go/storage/moc"
 )
 
@@ -14,17 +14,17 @@ import (
 */
 
 type BookHandler struct {
-	storage BookService
+	bs *bookService.BookService
 }
 
-func InitBookHandler() *BookService {
-   return BookService{
-	   storage: bookService.InitBookService()
-   }
+func InitBookHandler() *BookHandler {
+	return &BookHandler{
+		bs: bookService.InitBookService(),
+	}
 }
 
 // BooksHandleFunc processing requests "/api/books"
-func (bs *BookService) BooksHandleFunc(w http.ResponseWriter, r *http.Request) {
+func (bs *BookHandler) BooksHandleFunc(w http.ResponseWriter, r *http.Request) {
 	switch method := r.Method; method {
 	case http.MethodGet:
 		books := AllBooks()
@@ -36,7 +36,7 @@ func (bs *BookService) BooksHandleFunc(w http.ResponseWriter, r *http.Request) {
 			w.WriteHeader(http.StatusInternalServerError)
 		}
 		book := FromJSON(body)
-		isbn, created := bs.storage.CreateBook(book)
+		isbn, created := bs.bs.CreateBook(book)
 		fmt.Println("created ", isbn, created)
 		if created {
 			w.Header().Add("Location", "/api/books/"+isbn)
@@ -51,7 +51,7 @@ func (bs *BookService) BooksHandleFunc(w http.ResponseWriter, r *http.Request) {
 }
 
 // CreateBook creates a new Book if it does not exist
-func (bs *BookService) CreateBook(book model.Book) (string, bool) {
+func (bs *BookHandler) CreateBook(book model.Book) (string, bool) {
 	if _, ok := Books[book.ISBN]; ok {
 		return "", false
 	}

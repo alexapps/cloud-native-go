@@ -1,15 +1,17 @@
 package config
 
+import "os"
+
 type Configset struct {
 	Port string
 }
 
-func InitConfiguration() conf Configset {
-	conf = Configset{
-		Port: : port(),
+func InitConfiguration() (conf *Configset) {
+	conf = &Configset{
+		Port: port(),
 	}
+	return
 }
-
 
 // Good practice to microservices to do not hardcore the configurable values
 func port() string {

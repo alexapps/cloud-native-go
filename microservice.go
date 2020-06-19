@@ -4,7 +4,7 @@ import (
 	"net/http"
 
 	"github.com/alexapps/cloud-native-go/config"
-	handler "github.com/alexapps/cloud-native-go/api/handlers"
+	"github.com/alexapps/cloud-native-go/handlers"
 )
 
 func main() {
@@ -12,7 +12,7 @@ func main() {
 	// Init Configuration
 	confInstance := config.InitConfiguration()
 	// Init handlers
-	booHandler := handler.InitBookHandler()
+	booHandler := handlers.InitBookHandler()
 	// http://0.0.0.0:8084/
 	http.HandleFunc("/", index)
 	// http://0.0.0.0:8084/api/echo?message=Cloud+Native+Go

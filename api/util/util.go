@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"net/http"
 
-	model "github.com/alexapps/cloud-native-go/model"
+	"github.com/alexapps/cloud-native-go/model"
 )
 
 // func (b Book) ToJSON() []byte {
