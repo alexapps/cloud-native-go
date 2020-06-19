@@ -4,7 +4,7 @@ type Configset struct {
 	Port string
 }
 
-func InitConfiguration() (conf Configset, err error) {
+func InitConfiguration() conf Configset {
 	conf = Configset{
 		Port: : port(),
 	}

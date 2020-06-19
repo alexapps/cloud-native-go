@@ -4,7 +4,13 @@ import (
 	model "../../model"
 )
 
+// BookService -
 type BookService struct {
+}
+
+// InitBookService -
+func InitBookService() *BookService {
+	return BookService{}
 }
 
 // MOC Books
