@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"os"
 
-	"udemy/cloud-native-go/api"
+	"github.com/alexapps/cloud-native-go/api"
 )
 
 func main() {
@@ -13,7 +13,8 @@ func main() {
 	http.HandleFunc("/", index)
 	// http://0.0.0.0:8084/api/echo?message=Cloud+Native+Go
 	http.HandleFunc("/api/echo", api.Echo)
-	http.HandleFunc("/api/books", api.BookHandleFunc)
+	http.HandleFunc("/api/books", api.BooksHandleFunc)
+	http.HandleFunc("/api/books/", api.BookHandleFunc)
 	http.ListenAndServe(port(), nil)
 }
 
