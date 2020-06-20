@@ -44,3 +44,21 @@ func (b *BookService) Delete(ID string) (bool, error) {
 	}
 	return false, nil
 }
+
+func (b *BookService) AllBooks() ([]*model.Book, error) {
+	booksSlice := make([]*model.Book, len(booksMap))
+	index := 0
+	for _, v := range booksMap {
+		booksSlice[index] = v
+		index++
+	}
+	return booksSlice, nil
+}
+
+func (b *BookService) GetBooksMap() map[string]*model.Book {
+	return booksMap
+}
+
+func (b *BookService) SetBookMapValue(id string, v *model.Book) {
+	booksMap[id] = v
+}

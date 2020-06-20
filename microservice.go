@@ -12,12 +12,12 @@ func main() {
 	// Init Configuration
 	confInstance := config.InitConfiguration()
 	// Init handlers
-	booHandler := handlers.InitBookHandler()
+	bookHandler := handlers.InitBookHandler()
 	// http://0.0.0.0:8084/
-	http.HandleFunc("/", index)
+	http.HandleFunc("/", bookHandler.Index)
 	// http://0.0.0.0:8084/api/echo?message=Cloud+Native+Go
-	http.HandleFunc("/api/echo", booHandler.Echo)
-	http.HandleFunc("/api/books", booHandler.BooksHandleFunc)
-	http.HandleFunc("/api/books/", booHandler.BookHandleFunc)
+	http.HandleFunc("/api/echo", bookHandler.Echo)
+	http.HandleFunc("/api/books", bookHandler.BooksHandleFunc)
+	http.HandleFunc("/api/books/", bookHandler.BookHandleFunc)
 	http.ListenAndServe(confInstance.Port, nil)
 }
