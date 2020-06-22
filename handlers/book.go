@@ -27,6 +27,8 @@ func InitBookHandler() *BookHandler {
 
 // BooksHandleFunc processing requests "/api/books"
 func (bh *BookHandler) BooksHandleFunc(w http.ResponseWriter, r *http.Request) {
+	// Enable CORS for Browser use
+	bh.enableCORS(&w)
 	switch method := r.Method; method {
 	case http.MethodGet:
 		books, _ := bh.bs.AllBooks()
@@ -61,7 +63,10 @@ func (bh *BookHandler) CreateBook(book model.Book) (string, bool) {
 	return book.ISBN, true
 }
 
+// BookHandleFunc -
 func (bh *BookHandler) BookHandleFunc(w http.ResponseWriter, r *http.Request) {
+	// Enable CORS for Browser use
+	bh.enableCORS(&w)
 	books, _ := bh.bs.AllBooks()
 	b, err := json.Marshal(books)
 	if err != nil {
@@ -69,4 +74,11 @@ func (bh *BookHandler) BookHandleFunc(w http.ResponseWriter, r *http.Request) {
 	}
 	w.Header().Add("Content-Type", "application/json; charset=utf-8")
 	w.Write(b)
+}
+
+// enableCORS -
+func (bh *BookHandler) enableCORS(w *http.ResponseWriter) {
+	(*w).Header().Set("Access-Control-Allow-Origin", "*")
+	(*w).Header().Set("AAccess-Control-Allow-Methods", "GET,POST,OPTIONS,DELETE,PUT")
+
 }

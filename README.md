@@ -1,7 +1,7 @@
 # About
 Ready Code implementation inbound of the Udemy cource by Mario-Leander Reimer 
 > Unleash the power of Go Microservices to build blazing-fast scalable applications
-[https://www.udemy.com/course/learning-path-go-building-cloud-native-go-application]
+[See the origin course](https://www.udemy.com/course/learning-path-go-building-cloud-native-go-application)
 
 # What is difference
 Project structure is up to my view. 
@@ -13,4 +13,8 @@ Main points:
 - model
 - storage (moc)
 - go mod
+
+# Tech stack
+- net/http
+- json
 
